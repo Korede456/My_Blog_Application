@@ -117,18 +117,16 @@ const PostList = () => {
             color="black"
             gap="20px"
           >
-            <Link to={`/post/${post.id}`} w="100%" h="250px">
               <Image
                 w="100%"
                 src={`data:image/jpeg;base64,${post.thumbnail}`}
                 alt={post.title}
                 borderRadius="10px"
-                h="100%"
+                h="200"
               />
-            </Link>
             <Box w="100%" align="left">
               {post.category && (
-                <Button color="#63B3ED" colorScheme="blackAlpha">
+                <Button color="teal" colorScheme="blackAlpha">
                   {post.category}
                 </Button>
               )}
