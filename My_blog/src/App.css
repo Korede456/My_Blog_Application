@@ -3,3 +3,67 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+/* markdownStyles.css */
+
+.markdown {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  .markdown h1 {
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+  }
+  
+  .markdown h2 {
+    font-size: 1.5em;
+    margin-top: 0.75em;
+    margin-bottom: 0.75em;
+  }
+  
+  .markdown h3 {
+    font-size: 1.17em;
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+  }
+  
+  .markdown p {
+    margin: 1em 0;
+  }
+  
+  .markdown a {
+    color: #0366d6;
+    text-decoration: none;
+  }
+  
+  .markdown a:hover {
+    text-decoration: underline;
+  }
+  
+  .markdown ul,
+  .markdown ol {
+    margin: 1em 0;
+    padding-left: 40px;
+  }
+  
+  .markdown li {
+    margin: 0.5em 0;
+  }
+  
+  .markdown code {
+    background-color: #f6f8fa;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .markdown pre {
+    background-color: #f6f8fa;
+    padding: 1em;
+    border-radius: 3px;
+    overflow-x: auto;
+  }
+  

@@ -18,7 +18,8 @@ import {
 import Header from "../home/Header";
 import Footer from "../home/Footer";
 import ReactMarkdown from "react-markdown";
-import PropTypes from 'prop-types';
+import rehypeRaw from "rehype-raw";
+import PropTypes from "prop-types";
 
 const PostDetail = () => {
   const { id } = useParams();
@@ -123,7 +124,7 @@ const PostDetail = () => {
   return (
     <Box>
       <Header />
-      <Box w="100%" px={{ base: "2%", sm: "5%" }} mb="50" mt="110">
+      <Box w="100%" px={{ base: "2%", sm: "5%" }} mb="50" pt="150">
         <Flex dir="row">
           <Box w={{ base: "100%", md: "65%" }}>
             <Heading>{post.title}</Heading>
@@ -149,9 +150,12 @@ const PostDetail = () => {
               borderRadius="10px"
               mb="20px"
               w="100%"
+              maxH="400"
             />
-            <Box my="20">
-              <MarkdownComponent markdownContent={post.body} />
+            <Box my="20" className="markdown">
+              <ReactMarkdown
+                rehypePlugins={[rehypeRaw]}
+              >{post.body}</ReactMarkdown>
             </Box>
             <Box mt="40px" w={{ base: "100%", md: "60%", lg: "50%" }}>
               <Heading size="md" mb="20px">
@@ -172,43 +176,48 @@ const PostDetail = () => {
                   </Text>
                 </Box>
               ))}
-              <Heading size="md" mt="40px" mb="20px">
-                Add a Comment
-              </Heading>
-              <form onSubmit={handleCommentSubmit}>
-                <FormControl mb="20px">
-                  <FormLabel>Name</FormLabel>
-                  <Input
-                    type="text"
-                    name="name"
-                    value={newComment.name}
-                    onChange={handleCommentChange}
-                    required
-                  />
-                </FormControl>
-                <FormControl mb="20px">
-                  <FormLabel>Email</FormLabel>
-                  <Input
-                    type="email"
-                    name="email"
-                    value={newComment.email}
-                    onChange={handleCommentChange}
-                    required
-                  />
-                </FormControl>
-                <FormControl mb="20px">
-                  <FormLabel>Comment</FormLabel>
-                  <Textarea
-                    name="body"
-                    value={newComment.body}
-                    onChange={handleCommentChange}
-                    required
-                  />
-                </FormControl>
-                <Button type="submit" colorScheme="teal">
-                  Submit
-                </Button>
-              </form>
+              <Box>
+                <Heading size="md" mt="40px" mb="20px">
+                  Add a Comment
+                </Heading>
+                <form onSubmit={handleCommentSubmit}>
+                  <FormControl mb="20px">
+                    <FormLabel>Name</FormLabel>
+                    <Input
+                      type="text"
+                      name="name"
+                      value={newComment.name}
+                      onChange={handleCommentChange}
+                      required
+                      border="1px solid grey"
+                    />
+                  </FormControl>
+                  <FormControl mb="20px">
+                    <FormLabel>Email</FormLabel>
+                    <Input
+                      type="email"
+                      name="email"
+                      value={newComment.email}
+                      onChange={handleCommentChange}
+                      required
+                      border="1px solid grey"
+                    />
+                  </FormControl>
+                  <FormControl mb="20px">
+                    <FormLabel>Comment</FormLabel>
+                    <Textarea
+                      name="body"
+                      value={newComment.body}
+                      onChange={handleCommentChange}
+                      required
+                      border="1px solid grey"
+                    />
+                  </FormControl>
+                  <Button type="submit" colorScheme="teal">
+                    Submit
+                  </Button>
+                </form>
+              </Box>
             </Box>
           </Box>
           <Spacer />
