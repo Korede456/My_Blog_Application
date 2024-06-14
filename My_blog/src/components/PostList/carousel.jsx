@@ -23,7 +23,7 @@ const Carousel = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:8000/blog/api/posts/latest-per-tag/")
+    fetch("http://localhost:8000/blog/api/trending/")
       .then((response) => {
         console.log("Response:", response);
         if (!response.ok) {

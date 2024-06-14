@@ -19,24 +19,33 @@ import Header from "../home/Header";
 import Footer from "../home/Footer";
 
 const CategoryPosts = () => {
-  const { tagId } = useParams();
+  const { tag_name } = useParams();
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:8000/blog/api/tags/${tagId}/posts/`)
-      .then((response) => response.json())
+    fetchPostsByTag(tag_name);
+  }, [tag_name]);
+
+  const fetchPostsByTag = (tagName) => {
+    setLoading(true);
+    fetch(`http://localhost:8000/blog/api/tags/${tagName}/posts/`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
       .then((data) => {
         setPosts(data);
         setLoading(false);
       })
       .catch((error) => {
-        console.error("Error fetching posts:", error);
-        setError("Error fetching posts");
+        setError(error);
         setLoading(false);
       });
-  }, [tagId]);
+  };
 
   if (loading) {
     return (
@@ -88,15 +97,14 @@ const CategoryPosts = () => {
               color="black"
               gap="20px"
             >
-              
-                <Image
-                  w="100%"
-                  src={`data:image/jpeg;base64,${post.thumbnail}`}
-                  alt={post.title}
-                  borderRadius="10px"
-                  h="200"
-                />
-            
+              <Image
+                w="100%"
+                src={`data:image/jpeg;base64,${post.thumbnail}`}
+                alt={post.title}
+                borderRadius="10px"
+                h="200"
+              />
+
               <Box w="100%" align="left">
                 {post.category && (
                   <Button color="teal" colorScheme="blackAlpha">
@@ -105,7 +113,7 @@ const CategoryPosts = () => {
                 )}
               </Box>
               <Heading size="sm" px="20px" weight="bold">
-                <Link to={`/post/${post.id}`}>{post.title}</Link>
+                <Link to={`/post/${post.slug}`}>{post.title}</Link>
               </Heading>
               <Spacer />
               <Flex

@@ -132,7 +132,7 @@ const PostList = () => {
               )}
             </Box>
             <Heading size="sm" px="20px" weight="bold">
-              <Link to={`/post/${post.id}`}>{post.title}</Link>
+              <Link to={`/post/${post.slug}`}>{post.title}</Link>
             </Heading>
             <Spacer />
             <Flex
@@ -144,7 +144,7 @@ const PostList = () => {
               <Flex align="center" gap="10px">
                 <Avatar
                   size="sm"
-                  name="Kent Dodds"
+                  name={post.author_name}
                   src={`data:image/jpeg;base64,${post.author_avatar}`}
                 />
                 <Text color="grey">{post.author_name}</Text>

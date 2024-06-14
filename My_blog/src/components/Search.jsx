@@ -73,6 +73,7 @@ const Search = () => {
               onChange={handleInputChange}
               placeholder="Search posts..."
               mb="10px"
+              color="#fff"
             />
             {loading && <Spinner />}
             {error && <Text color="red.500">{error}</Text>}
@@ -84,6 +85,7 @@ const Search = () => {
                     p="10px"
                     borderWidth="1px"
                     borderRadius="md"
+                    color="#fff"
                   >
                     <Link to={`/post/${post.id}`}>
                       <Text fontSize="lg" fontWeight="bold" onClick={onClose}>

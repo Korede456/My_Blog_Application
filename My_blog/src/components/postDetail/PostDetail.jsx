@@ -22,7 +22,7 @@ import rehypeRaw from "rehype-raw";
 import PropTypes from "prop-types";
 
 const PostDetail = () => {
-  const { id } = useParams();
+  const { post_slug } = useParams();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -35,7 +35,11 @@ const PostDetail = () => {
   });
 
   useEffect(() => {
-    fetch(`http://localhost:8000/blog/api/posts/${id}/`)
+    fetchPostsByTag(post_slug);
+  }, [post_slug]);
+
+  const fetchPostsByTag = (slug) => {
+    fetch(`http://localhost:8000/blog/api/posts/${slug}/`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -52,7 +56,7 @@ const PostDetail = () => {
         setError(error);
         setLoading(false);
       });
-  }, [id]);
+  };
 
   const fetchRelatedPosts = (postId) => {
     fetch(`http://localhost:8000/blog/api/posts/${postId}/related/`)
@@ -74,7 +78,7 @@ const PostDetail = () => {
 
   const handleCommentSubmit = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:8000/blog/api/posts/${id}/comment/`, {
+    fetch(`http://localhost:8000/blog/api/posts/${post.id}/comment/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -116,7 +120,18 @@ const PostDetail = () => {
   if (error) {
     return (
       <Box w="100%" px={{ base: "2%", sm: "5%", md: "10%" }}>
-        Error: {error.message}
+        <Header />
+        <Text pt="150">
+          The page you&#39;re trying to access does not exist
+        </Text>
+        <Text py="10">
+          {" "}
+          Click{" "}
+          <Text color="blue" display="inline">
+            <Link to="/">here</Link>
+          </Text>{" "}
+          to go back to the home page
+        </Text>
       </Box>
     );
   }
@@ -140,7 +155,9 @@ const PostDetail = () => {
                   borderRadius="5px"
                   color="white"
                 >
-                  {post.category}
+                  <Link to={`/tag/${post.category}/posts`}>
+                    {post.category}
+                  </Link>
                 </Text>
               )}
             </Flex>
@@ -153,9 +170,9 @@ const PostDetail = () => {
               maxH="400"
             />
             <Box my="20" className="markdown">
-              <ReactMarkdown
-                rehypePlugins={[rehypeRaw]}
-              >{post.body}</ReactMarkdown>
+              <ReactMarkdown rehypePlugins={[rehypeRaw]}>
+                {post.body}
+              </ReactMarkdown>
             </Box>
             <Box mt="40px" w={{ base: "100%", md: "60%", lg: "50%" }}>
               <Heading size="md" mb="20px">
@@ -227,7 +244,7 @@ const PostDetail = () => {
             </Heading>
             {relatedPosts.map((relatedPost) => (
               <Box key={relatedPost.id} my="20px">
-                <Link to={`/post/${relatedPost.id}`}>
+                <Link to={`/post/${relatedPost.slug}`}>
                   <Image
                     src={`data:image/jpeg;base64,${relatedPost.thumbnail}`}
                     alt={post.title}

@@ -11,8 +11,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/post/:id" element={<PostDetail />} />
-          <Route path="/tag/:tagId/posts" element={<CategoryPosts />} />
+          <Route path="/post/:post_slug" element={<PostDetail />} />
+          <Route path="/tag/:tag_name/posts" element={<CategoryPosts />} />
         </Routes>
       </Router>
     </Box>

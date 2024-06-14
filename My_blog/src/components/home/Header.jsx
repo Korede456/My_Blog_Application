@@ -18,7 +18,7 @@ const Header = () => {
     >
       <Flex align="center" w="100%" h="100px">
         <Heading size="md">
-          <Link to="/"> DEVSTACK-IMPROVE</Link>
+          <Link to="/" className="brand-name"> KTECHNEWS</Link>
         </Heading>
         <Spacer />
         <Flex gap="10px">

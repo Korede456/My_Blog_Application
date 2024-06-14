@@ -45,7 +45,7 @@ const SideNav = () => {
               <List spacing={3}>
                 {tags.map((tag) => (
                   <ListItem key={tag.id} color="#fff">
-                    <Link to={`/tag/${tag.id}/posts`} onClick={onClose}>
+                    <Link to={`/tag/${tag.name}/posts`} onClick={onClose}>
                       {tag.name}
                     </Link>
                   </ListItem>
