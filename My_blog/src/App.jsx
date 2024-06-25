@@ -1,9 +1,9 @@
 import { Box } from "@chakra-ui/react";
-import HomePage from "./components/home/homePage";
+import HomePage from "./components/homePage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import PostDetail from "./components/postDetail/PostDetail";
+import PostDetail from "./components/PostDetail";
 import "./App.css";
-import CategoryPosts from "./components/PostList/CategoryPost";
+import CategoryPosts from "./components/CategoryPost";
 
 function App() {
   return (

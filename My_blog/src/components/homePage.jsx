@@ -1,8 +1,8 @@
 import { Box } from "@chakra-ui/react";
-import Header from "./Header";
-import Carousel from "../PostList/carousel";
-import PostList from "../PostList/PostList";
-import Footer from "./Footer";
+import Header from "./Header/Header";
+import Carousel from "./carousel";
+import PostList from "./PostList";
+import Footer from "./Footer/Footer";
 
 const homePage = () => {
   return (

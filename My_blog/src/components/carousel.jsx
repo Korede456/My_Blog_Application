@@ -81,7 +81,7 @@ const Carousel = () => {
             textAlign="center"
             borderRadius="10px"
           >
-            <Link to={`/post/${post.id}`}>
+            <Link to={`/post/${post.slug}`}>
               <Image
                 src={`data:image/jpeg;base64,${post.thumbnail}`}
                 alt={post.title}

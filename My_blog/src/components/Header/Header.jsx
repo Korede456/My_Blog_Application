@@ -1,7 +1,7 @@
 import SideNav from "./SideNav";
 import { Box, Flex, Heading, Spacer } from "@chakra-ui/react";
 //import { IoSearchSharp } from "react-icons/io5";
-import Search from "../Search";
+import Search from "./Search";
 import { Link } from "react-router-dom";
 
 const Header = () => {

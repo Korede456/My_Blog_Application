@@ -15,8 +15,8 @@ import {
   Textarea,
   Button,
 } from "@chakra-ui/react";
-import Header from "../home/Header";
-import Footer from "../home/Footer";
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import PropTypes from "prop-types";

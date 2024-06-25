@@ -15,8 +15,8 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import Header from "../home/Header";
-import Footer from "../home/Footer";
+import Header from "./Header/Header";
+import Footer from "./Footer/Footer";
 
 const CategoryPosts = () => {
   const { tag_name } = useParams();
