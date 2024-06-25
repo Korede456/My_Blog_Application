@@ -125,7 +125,7 @@ const CategoryPosts = () => {
                 <Flex align="center" gap="10px">
                   <Avatar
                     size="sm"
-                    name="Kent Dodds"
+                    name={post.author_name}
                     src={`data:image/jpeg;base64,${post.author_avatar}`}
                   />
                   <Text color="grey">{post.author_name}</Text>
@@ -143,18 +143,3 @@ const CategoryPosts = () => {
 };
 
 export default CategoryPosts;
-
-{
-  /* <Box p="4" mt="100">
-<Heading as="h2" size="lg" mb="4">
-  Posts for Tag {tagId}
-</Heading>
-<List spacing={3}>
-  {posts.map((post) => (
-    <ListItem key={post.id}>
-      <Link to={`/post/${post.id}`}>{post.title}</Link>
-    </ListItem>
-  ))}
-</List>
-</Box> */
-}

@@ -86,7 +86,7 @@ const Carousel = () => {
                 src={`data:image/jpeg;base64,${post.thumbnail}`}
                 alt={post.title}
                 borderRadius="10px"
-                h={{ md: "350px", lg: "500px" }}
+                h={{ base:"250", md: "350px", lg: "500px" }}
                 m="auto"
                 w="100%"
               />
@@ -138,3 +138,4 @@ const Carousel = () => {
 };
 
 export default Carousel;
+

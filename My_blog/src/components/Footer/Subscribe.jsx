@@ -4,7 +4,7 @@ import {
   Button,
   Input,
   FormControl,
-  FormLabel,
+  Heading,
   Alert,
   Flex,
 } from "@chakra-ui/react";
@@ -41,10 +41,11 @@ const Subscribe = () => {
   }, [message, error]);
 
   return (
-    <Box>
-      <FormControl id="email">
-        <FormLabel>Subscribe to our newsletter</FormLabel>
-        <Flex align="center" mt={10}>
+    <Box my={{base:10}}>
+      
+      <Heading align="center" size="sm">Subscribe to Our News Letter</Heading>
+      <FormControl id="email" my={{base:10}}>
+        <Flex align="center" mt={3}>
           <Input
             type="email"
             value={email}

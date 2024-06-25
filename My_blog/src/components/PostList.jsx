@@ -89,20 +89,8 @@ const PostList = () => {
   }
 
   return (
-    <Box w="100%" px={{ base: "2%", sm: "5%", md: "10%" }} my="50">
-      <Heading align="center">Posts</Heading>
-      <Flex justify="space-between" mt="20px">
-        {hasPreviousPage && (
-          <Button color="teal" onClick={handlePreviousPage}>
-            Previous
-          </Button>
-        )}
-        {hasNextPage && (
-          <Button color="teal" onClick={handleNextPage}>
-            Next
-          </Button>
-        )}
-      </Flex>
+    <Box w="100%" px={{ base: "2%", sm: "5%", md: "10%" }} py="50">
+      <Heading align="center" my="50">Trending Posts</Heading>
       <Flex w="100%" align="stretch" justify="space-between" wrap="wrap">
         {posts.map((post) => (
           <Card
@@ -110,7 +98,7 @@ const PostList = () => {
             display="flex"
             direction="column"
             align="center"
-            w={{ sm: "100%", md: "48%", lg: "32%" }}
+            w={{ base: "100%", md: "48%", lg: "32%" }}
             my="10px"
             p="2"
             bg="inherit"
@@ -157,13 +145,13 @@ const PostList = () => {
       </Flex>
       <Flex justify="space-between" mt="20px">
         {hasPreviousPage && (
-          <Button color="teal" onClick={handlePreviousPage}>
-            Previous
+          <Button colorScheme='teal' onClick={handlePreviousPage}>
+            Previous Page
           </Button>
         )}
         {hasNextPage && (
-          <Button color="teal" onClick={handleNextPage}>
-            Next
+          <Button colorScheme='teal' onClick={handleNextPage}>
+            Next Page
           </Button>
         )}
       </Flex>
