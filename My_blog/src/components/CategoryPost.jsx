@@ -90,7 +90,7 @@ const CategoryPosts = () => {
               display="flex"
               direction="column"
               align="center"
-              w={{ sm: "100%", md: "48%", lg: "32%" }}
+              w={{ base: "100%", md: "48%", lg: "32%" }}
               my="10px"
               p="2"
               bg="inherit"

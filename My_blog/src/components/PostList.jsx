@@ -90,7 +90,7 @@ const PostList = () => {
 
   return (
     <Box w="100%" px={{ base: "2%", sm: "5%", md: "10%" }} py="50">
-      <Heading align="center" my="50">Trending Posts</Heading>
+      <Heading align="center" my="50">Latest Posts</Heading>
       <Flex w="100%" align="stretch" justify="space-between" wrap="wrap">
         {posts.map((post) => (
           <Card

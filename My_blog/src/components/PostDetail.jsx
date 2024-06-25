@@ -21,6 +21,7 @@ import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import PropTypes from "prop-types";
 
+//what is wrong with the bellow code
 const PostDetail = () => {
   const { post_slug } = useParams();
   const [post, setPost] = useState(null);
@@ -140,9 +141,9 @@ const PostDetail = () => {
     <Box>
       <Header />
       <Box w="100%" px={{ base: "2%", sm: "5%" }} mb="50" pt="150">
-        <Flex dir="row">
+        <Flex dir="row" display={{base:"block", md:"flex"}}>
           <Box w={{ base: "100%", md: "65%" }}>
-            <Heading>{post.title}</Heading>
+            <Heading align="center"mb="3">{post.title}</Heading>
             <Flex align="center" gap="10px" my="10px">
               <Avatar src={`data:image/jpeg;base64,${post.author_avatar}`} />
               <Text mr="10">{post.author_name}</Text>
@@ -167,7 +168,7 @@ const PostDetail = () => {
               borderRadius="10px"
               mb="20px"
               w="100%"
-              maxH="400"
+              h={{base:"200", md:"400"}}
             />
             <Box my="20" className="markdown">
               <ReactMarkdown rehypePlugins={[rehypeRaw]}>
@@ -238,12 +239,12 @@ const PostDetail = () => {
             </Box>
           </Box>
           <Spacer />
-          <Box w={{ base: "100%", md: "30%" }}>
-            <Heading w="100%" mb="20px">
+          <Box w={{ base: "100%", md: "30%" }} >
+            <Heading w="100%" mb="20px" align="center">
               Similar Posts
             </Heading>
             {relatedPosts.map((relatedPost) => (
-              <Box key={relatedPost.id} my="20px">
+              <Box key={relatedPost.id} my="20">
                 <Link to={`/post/${relatedPost.slug}`}>
                   <Image
                     src={`data:image/jpeg;base64,${relatedPost.thumbnail}`}
@@ -251,9 +252,10 @@ const PostDetail = () => {
                     borderRadius="10px"
                     mb="20px"
                     w="100%"
+                    h={{base:"200", md:"250"}}
                   />
                 </Link>
-                <Heading size="sm">{relatedPost.title}</Heading>
+                <Heading size="sm" align="center">{relatedPost.title}</Heading>
                 <hr />
               </Box>
             ))}

@@ -58,7 +58,7 @@ const Search = () => {
         rounded="5"
         cursor="pointer"
       >
-        <Text px="5px">Post Search</Text>
+        <Text px="5px">Search</Text>
         <Button bg="RGBA(0, 0, 0, 0.24)">
           <IoSearchSharp />
         </Button>
