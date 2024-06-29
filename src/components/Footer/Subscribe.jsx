@@ -18,7 +18,7 @@ const Subscribe = () => {
   const handleSubscribe = async () => {
     try {
       const response = await axios.post(
-        "http://localhost:8000/blog/api/subscribe/",
+        "https://korede456.pythonanywhere.com/blog/api/subscribe/",
         { email }
       );
       setMessage(response.data.message);

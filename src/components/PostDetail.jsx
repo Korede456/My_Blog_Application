@@ -40,7 +40,7 @@ const PostDetail = () => {
   }, [post_slug]);
 
   const fetchPostsByTag = (slug) => {
-    fetch(`http://localhost:8000/blog/api/posts/${slug}/`)
+    fetch(`https://korede456.pythonanywhere.com/blog/api/posts/${slug}/`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -60,14 +60,14 @@ const PostDetail = () => {
   };
 
   const fetchRelatedPosts = (postId) => {
-    fetch(`http://localhost:8000/blog/api/posts/${postId}/related/`)
+    fetch(`https://korede456.pythonanywhere.com/blog/api/posts/${postId}/related/`)
       .then((response) => response.json())
       .then((data) => setRelatedPosts(data))
       .catch((error) => console.error("Error fetching related posts:", error));
   };
 
   const fetchComments = (postId) => {
-    fetch(`http://localhost:8000/blog/api/posts/${postId}/comments/`)
+    fetch(`https://korede456.pythonanywhere.com/blog/api/posts/${postId}/comments/`)
       .then((response) => response.json())
       .then((data) => setComments(data))
       .catch((error) => console.error("Error fetching comments:", error));
@@ -79,7 +79,7 @@ const PostDetail = () => {
 
   const handleCommentSubmit = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:8000/blog/api/posts/${post.id}/comment/`, {
+    fetch(`https://korede456.pythonanywhere.com/blog/api/posts/${post.id}/comment/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

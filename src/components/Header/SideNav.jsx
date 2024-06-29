@@ -20,7 +20,7 @@ const SideNav = () => {
   const [tags, setTags] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/blog/api/tags/")
+    fetch("https://korede456.pythonanywhere.com/blog/api/tags/")
       .then((response) => response.json())
       .then((data) => setTags(data))
       .catch((error) => console.error("Error fetching tags:", error));

@@ -30,7 +30,7 @@ const CategoryPosts = () => {
 
   const fetchPostsByTag = (tagName) => {
     setLoading(true);
-    fetch(`http://localhost:8000/blog/api/tags/${tagName}/posts/`)
+    fetch(`https://korede456.pythonanywhere.com/blog/api/tags/${tagName}/posts/`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");

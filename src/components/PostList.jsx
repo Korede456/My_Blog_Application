@@ -28,7 +28,7 @@ const PostList = () => {
 
   const fetchPosts = (page) => {
     setLoading(true);
-    fetch(`http://localhost:8000/blog/api/posts/?page=${page}`)
+    fetch(`https://korede456.pythonanywhere.com/blog/api/posts/?page=${page}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
