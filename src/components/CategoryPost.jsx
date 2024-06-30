@@ -30,7 +30,9 @@ const CategoryPosts = () => {
 
   const fetchPostsByTag = (tagName) => {
     setLoading(true);
-    fetch(`https://korede456.pythonanywhere.com/blog/api/tags/${tagName}/posts/`)
+    fetch(
+      `https://korede456.pythonanywhere.com/blog/api/tags/${tagName}/posts/`
+    )
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -107,9 +109,11 @@ const CategoryPosts = () => {
 
               <Box w="100%" align="left">
                 {post.category && (
-                  <Button color="teal" colorScheme="blackAlpha">
-                    {post.category}
-                  </Button>
+                  <Link to={`/tag/${post.category}/posts`}>
+                    <Button color="teal" colorScheme="blackAlpha">
+                      {post.category}
+                    </Button>
+                  </Link>
                 )}
               </Box>
               <Heading size="sm" px="20px" weight="bold">

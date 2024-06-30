@@ -90,7 +90,9 @@ const PostList = () => {
 
   return (
     <Box w="100%" px={{ base: "2%", sm: "5%", md: "10%" }} py="50">
-      <Heading align="center" my="50">Latest Posts</Heading>
+      <Heading align="center" my="50">
+        Latest Posts
+      </Heading>
       <Flex w="100%" align="stretch" justify="space-between" wrap="wrap">
         {posts.map((post) => (
           <Card
@@ -105,19 +107,19 @@ const PostList = () => {
             color="black"
             gap="20px"
           >
-              <Image
-                w="100%"
-                src={`data:image/jpeg;base64,${post.thumbnail}`}
-                alt={post.title}
-                borderRadius="10px"
-                h="200"
-              />
+            <Image
+              w="100%"
+              src={`data:image/jpeg;base64,${post.thumbnail}`}
+              alt={post.title}
+              borderRadius="10px"
+              h="200"
+            />
             <Box w="100%" align="left">
               {post.category && (
                 <Link to={`/tag/${post.category}/posts`}>
-                <Button color="teal" colorScheme="blackAlpha">
-                  {post.category}
-                </Button>
+                  <Button color="teal" colorScheme="blackAlpha">
+                    {post.category}
+                  </Button>
                 </Link>
               )}
             </Box>
@@ -147,12 +149,12 @@ const PostList = () => {
       </Flex>
       <Flex justify="space-between" mt="20px">
         {hasPreviousPage && (
-          <Button colorScheme='teal' onClick={handlePreviousPage}>
+          <Button colorScheme="teal" onClick={handlePreviousPage}>
             Previous Page
           </Button>
         )}
         {hasNextPage && (
-          <Button colorScheme='teal' onClick={handleNextPage}>
+          <Button colorScheme="teal" onClick={handleNextPage}>
             Next Page
           </Button>
         )}
