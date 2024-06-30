@@ -95,9 +95,9 @@ const PostDetail = () => {
       .then((data) => {
         setComments([data, ...comments]);
         setNewComment({ name: "", email: "", body: "" });
-        setTimeout(() => {
-          window.location.reload();
-        }, 2000);
+        // setTimeout(() => {
+        //   window.location.reload();
+        // }, 2000);
       })
       .catch((error) => console.error("Error adding comment:", error));
   };

@@ -73,7 +73,7 @@ const Search = () => {
               onChange={handleInputChange}
               placeholder="Search posts..."
               mb="10px"
-              color="#fff"
+              color="#000"
             />
             {loading && <Spinner />}
             {error && <Text color="red.500">{error}</Text>}
