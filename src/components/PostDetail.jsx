@@ -168,7 +168,7 @@ const PostDetail = () => {
               borderRadius="10px"
               mb="20px"
               w="100%"
-              h={{base:"200", md:"400"}}
+              h={{base:"200", sm:"250", md:"400"}}
             />
             <Box my="20" className="markdown">
               <ReactMarkdown rehypePlugins={[rehypeRaw]}>
