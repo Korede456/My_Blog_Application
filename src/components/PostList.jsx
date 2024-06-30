@@ -114,9 +114,11 @@ const PostList = () => {
               />
             <Box w="100%" align="left">
               {post.category && (
+                <Link to={`/tag/${post.category}/posts`}>
                 <Button color="teal" colorScheme="blackAlpha">
                   {post.category}
                 </Button>
+                </Link>
               )}
             </Box>
             <Heading size="sm" px="20px" weight="bold">
