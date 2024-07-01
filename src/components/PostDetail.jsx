@@ -49,7 +49,6 @@ const PostDetail = () => {
       })
       .then((data) => {
         setPost(data);
-        document.title = `${post.title}`;
         setLoading(false);
         fetchRelatedPosts(data.id);
         fetchComments(data.id);
@@ -102,6 +101,11 @@ const PostDetail = () => {
       })
       .catch((error) => console.error("Error adding comment:", error));
   };
+
+  function AboutPage() {
+    useEffect(() => {
+      document.title = `${post.title}`;
+    }, [post]);
 
   if (loading) {
     return (
