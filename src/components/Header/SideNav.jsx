@@ -39,7 +39,7 @@ const SideNav = () => {
       >
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerCloseButton color="#fff" />
+          <DrawerCloseButton color="#000" />
           <DrawerBody>
             <Box p="4">
               <List spacing={3}>
