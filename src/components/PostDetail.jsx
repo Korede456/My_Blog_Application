@@ -102,11 +102,6 @@ const PostDetail = () => {
       .catch((error) => console.error("Error adding comment:", error));
   };
 
-  function AboutPage() {
-    useEffect(() => {
-      document.title = `${post.title}`;
-    }, [post]);
-
   if (loading) {
     return (
       <Box>
