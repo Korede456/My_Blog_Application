@@ -49,6 +49,7 @@ const PostDetail = () => {
       })
       .then((data) => {
         setPost(data);
+        document.title = `${post.title}`;
         setLoading(false);
         fetchRelatedPosts(data.id);
         fetchComments(data.id);
