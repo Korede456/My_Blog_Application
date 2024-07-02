@@ -39,12 +39,12 @@ const SideNav = () => {
       >
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerCloseButton color="#000" />
-          <DrawerBody>
+          <DrawerCloseButton color="#fff" />
+          <DrawerBody bg="teal">
             <Box p="4">
               <List spacing={3}>
                 {tags.map((tag) => (
-                  <ListItem key={tag.id} color="#000">
+                  <ListItem key={tag.id} color="#fff">
                     <Link to={`/tag/${tag.name}/posts`} onClick={onClose}>
                       {tag.name}
                     </Link>

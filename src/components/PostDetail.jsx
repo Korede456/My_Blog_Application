@@ -52,6 +52,7 @@ const PostDetail = () => {
         setLoading(false);
         fetchRelatedPosts(data.id);
         fetchComments(data.id);
+        document.title=data.title;
       })
       .catch((error) => {
         setError(error);

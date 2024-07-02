@@ -13,6 +13,7 @@ import {
   Spinner,
   List,
   ListItem,
+  Container
 } from "@chakra-ui/react";
 import { IoSearchSharp } from "react-icons/io5";
 import axios from "axios";
@@ -66,17 +67,18 @@ const Search = () => {
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent bg="teal">
           <ModalBody>
             <Input
               value={query}
               onChange={handleInputChange}
               placeholder="Search posts..."
               mb="10px"
-              color="#000"
+              color="#fff"
+              border="2px solid white"
             />
-            {loading && <Spinner />}
-            {error && <Text color="red.500">{error}</Text>}
+            {loading && <Container align="center"><Spinner /></Container>}
+            {error && <Text color="#fff" align="center">Search not found</Text>}
             <List spacing={2}>
               {results != null ? (
                 results.map((post) => (
@@ -88,7 +90,7 @@ const Search = () => {
                     color="#fff"
                   >
                     <Link to={`/post/${post.id}`}>
-                      <Text fontSize="lg" fontWeight="bold" onClick={onClose}>
+                      <Text onClick={onClose}>
                         {post.title}
                       </Text>
                     </Link>
@@ -101,7 +103,7 @@ const Search = () => {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            <Button colorScheme="teal" mr={3} onClick={onClose}>
               Close
             </Button>
           </ModalFooter>

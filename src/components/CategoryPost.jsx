@@ -42,6 +42,7 @@ const CategoryPosts = () => {
       .then((data) => {
         setPosts(data);
         setLoading(false);
+        document.title=`KtechNews | ${tagName}`;
       })
       .catch((error) => {
         setError(error);
