@@ -89,7 +89,7 @@ const Search = () => {
                     borderRadius="md"
                     color="#fff"
                   >
-                    <Link to={`/post/${post.id}`}>
+                    <Link to={`/post/${post.slug}`}>
                       <Text onClick={onClose}>
                         {post.title}
                       </Text>
