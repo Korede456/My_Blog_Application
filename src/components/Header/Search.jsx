@@ -31,7 +31,7 @@ const Search = () => {
       setLoading(true);
       setError(null);
       axios
-        .get(`https://korede456.pythonanywhere.com/blog/api/posts/search/?query=${query}`)
+        .get(`https://korede456.pythonanywhere.com/blog/api/search/?query=${query}`)
         .then((response) => {
           setResults(response.data);
           setLoading(false);
